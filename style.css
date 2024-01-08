@@ -200,7 +200,14 @@ body {
 }
 
 .choose__qty {
+  display: grid;
+  grid-template-rows: 0fr;
   padding-bottom: var(--choose-qty-padding-bttm);
+  transition: grid-template-rows 0.3s;
+}
+
+.test {
+  overflow: hidden;
 }
 
 .qty_btn {
@@ -336,6 +343,14 @@ body {
 
 .slider--active {
   transform: translateX(0%);
+}
+
+.btn-cart--hide {
+  display: none;
+}
+
+.choose__qty--active {
+  grid-template-rows: 1fr;
 }
 
 /* MEDIA QUERY */

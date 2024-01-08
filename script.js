@@ -30,7 +30,7 @@ const close_open_qtyBtn = function (ele) {
 
 // --> INCREASE AND DECREASE QUANTITY
 const incre_And_dec = function (parentEle, currentEle, input) {
-  if (input.value !== 0) {
+  if (input.value !== 0 && input.value > 0) {
     currentEle.classList.contains("plus") === true
       ? input.value++
       : input.value--;

@@ -9,8 +9,11 @@ const cartBtn = document.querySelector(".icon__box");
 const closeCartBtn = document.querySelector(".close__btn");
 
 const itemLists = document.querySelector(".lists");
+const cartItemLists = document.querySelector(".checkout__lists");
+const checkOutBox = document.querySelector(".checkout__lists");
 
 let allProduct;
+let shoppingCart = [];
 
 // --> SLIDER FUNCTIONALITY
 const cartFunc = function () {
@@ -19,41 +22,13 @@ const cartFunc = function () {
   overlay.classList.toggle("overlay--active");
 };
 
-// --> OPEN & CLOSE QTY BUTTONs
-const close_open_qtyBtn = function (ele) {
-  const cartBtn = ele.querySelector(".btn-cart");
-  const selectQty = ele.querySelector(".choose__qty");
+// --> DISPLAY/HIDE QTY BUTTON
+const showQtyButton = function (par) {
+  const selectBox = par.querySelector(".choose__qty");
+  const qtyBtn = par.querySelector(".btn-cart");
 
-  cartBtn.classList.toggle("btn-cart--hide");
-  selectQty.classList.toggle("choose__qty--active");
-};
-
-// --> INCREASE AND DECREASE QUANTITY
-const incre_And_dec = function (parentEle, currentEle, input) {
-  if (input.value !== 0 && input.value > 0) {
-    currentEle.classList.contains("plus") === true
-      ? input.value++
-      : input.value--;
-  } else if (input.value === 0) {
-    setTimeout(() => {
-      close_open_qtyBtn(parentEle);
-    }, 500);
-  }
-};
-
-// --> ADD TO CART
-const addTocart = function (currentEle, targetEle) {
-  const id = currentEle.dataset.id;
-  if (targetEle.className !== "btn-cart") return;
-  close_open_qtyBtn(currentEle);
-  const input = currentEle.querySelector(".input__qty");
-  input.value = 1;
-
-  currentEle.querySelectorAll(".qty_btn").forEach((item) => {
-    item.addEventListener("click", function (e) {
-      incre_And_dec(currentEle, this, input);
-    });
-  });
+  selectBox.classList.toggle("choose__qty--active");
+  qtyBtn.classList.toggle("btn-cart--hide");
 };
 
 // --> DISPLAY PRODUCTs
@@ -91,12 +66,30 @@ const showItems = function (items) {
     .join("");
 
   itemLists.innerHTML = elements;
+};
 
-  itemLists.querySelectorAll(".item").forEach((item) =>
-    item.addEventListener("click", function (e) {
-      addTocart(this, e.target);
+const showAddedItem = function (items) {
+  const elements = items
+    .map((item) => {
+      return `<li class="checkout__item flex data-cart="${item.ourproductID}">
+    <div class="img__box-2">
+      <img src="${item.img}" alt="${item.alt}" />
+    </div>
+
+    <p class="item__name">${item.name}</p>
+
+    <span class="total__amt">$ ${item.price * item.quantity}</span>
+
+    <div class="increase__qty flex">
+      <button class="qty_btn minus">&minus;</button>
+      <span class="total__qty">${item.quantity}</span>
+      <button class="qty_btn plus">&plus;</button>
+    </div>
+  </li>`;
     })
-  );
+    .join("");
+
+  cartItemLists.innerHTML = elements;
 };
 
 const getItems = async function () {
@@ -106,6 +99,64 @@ const getItems = async function () {
   showItems(allProduct);
 };
 getItems();
+
+const addToCart = function (idNum, input) {
+  const ourproduct = allProduct.find((item) => item.id === +idNum);
+  const findProduct = shoppingCart.find((item) => item.ourproductID === +idNum);
+
+  if (shoppingCart.length === 0) {
+    shoppingCart.push({
+      ourproductID: ourproduct.id,
+      name: ourproduct.name,
+      price: ourproduct.price,
+      img: ourproduct.image,
+      alt: ourproduct.alt,
+      quantity: +input.value,
+    });
+  } else if (findProduct) {
+    findProduct.quantity = +input.value;
+  } else if (findProduct === undefined) {
+    shoppingCart.push({
+      ourproductID: ourproduct.id,
+      name: ourproduct.name,
+      price: ourproduct.price,
+      img: ourproduct.image,
+      alt: ourproduct.alt,
+      quantity: +input.value,
+    });
+  }
+  console.log(`Shopping Cart:-`, shoppingCart);
+
+  showAddedItem(shoppingCart);
+};
+
+const selectQty = function (parnEle, input, element) {
+  if (element.classList.contains("plus")) {
+    input.value++;
+  } else if (element.classList.contains("minus") && +input.value > 0) {
+    input.value--;
+  }
+
+  if (+input.value === 0) {
+    setTimeout(() => {
+      showQtyButton(parnEle);
+    }, 500);
+  }
+  addToCart(parnEle.dataset.id, input);
+};
+
+itemLists.addEventListener("click", function (e) {
+  const parentEle = e.target.closest(".item");
+  const input = parentEle.querySelector(".input__qty");
+
+  if (e.target.classList.contains("btn-cart")) {
+    input.value = 1;
+    showQtyButton(parentEle);
+    addToCart(parentEle.dataset.id, input);
+  } else if (e.target.classList.contains("qty_btn")) {
+    selectQty(parentEle, input, e.target);
+  }
+});
 
 cartBtn.addEventListener("click", cartFunc);
 closeCartBtn.addEventListener("click", cartFunc);

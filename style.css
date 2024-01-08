@@ -163,7 +163,7 @@ body {
 }
 
 .lists {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
   gap: var(--lists-gap);
 }
 
@@ -339,7 +339,7 @@ body {
 }
 
 /* MEDIA QUERY */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 31.25rem) {
   :root {
     --checkout-list-gap: 1.25rem;
     --checkout-item-gap: 0.55rem;
@@ -372,7 +372,7 @@ body {
   }
 
   .lists {
-    grid-template-columns: minmax(300px, 400px);
+    grid-template-columns: minmax(18.75rem, 25rem);
     justify-content: center;
   }
 

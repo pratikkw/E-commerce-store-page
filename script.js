@@ -30,14 +30,15 @@ const close_open_qtyBtn = function (ele) {
 
 // --> INCREASE AND DECREASE QUANTITY
 const incre_And_dec = function (parentEle, currentEle, input) {
-  currentEle.classList.contains("plus") === true
-    ? input.value++
-    : input.value--;
-
-  if (input.value !== 0) return;
-  setTimeout(() => {
-    close_open_qtyBtn(parentEle);
-  }, 500);
+  if (input.value !== 0) {
+    currentEle.classList.contains("plus") === true
+      ? input.value++
+      : input.value--;
+  } else if (input.value === 0) {
+    setTimeout(() => {
+      close_open_qtyBtn(parentEle);
+    }, 500);
+  }
 };
 
 // --> ADD TO CART

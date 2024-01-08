@@ -79,8 +79,9 @@ const showItems = function (items) {
         <input
           type="number"
           class="input__qty"
+          readonly
+          step="1"
           min="0"
-          placeholder="05"
         />
         <button class="qty_btn plus">&plus;</button>
       </div>

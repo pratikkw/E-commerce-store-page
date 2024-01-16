@@ -139,6 +139,7 @@ body {
 
 .slider {
   --third-title-padding: 1rem 1.5rem;
+  --checkout-padding-block: 1rem;
   --checkout-item-padding-inline: 0.5rem;
   --slider-btns-padding: 1.25rem 0rem;
   --checkout-item-gap: 0.5rem;
@@ -148,9 +149,10 @@ body {
   --checkout-btns-width: 1.5rem;
   --checkout-quantity-width: 5ch;
   width: 100vw;
-  max-width: 420px;
+  max-width: 26.25rem;
   background-color: var(--slider-bk-clr);
   grid-template-rows: auto 1fr auto;
+  gap: 0;
   position: fixed;
   inset: 0 0 0 auto;
   z-index: 30;
@@ -237,6 +239,7 @@ input::-webkit-inner-spin-button {
     padding: var(--third-title-padding);
     border-bottom: 1px solid #fff; }
   .slider .checkout {
+    padding-block: var(--checkout-padding-block);
     overflow-y: scroll; }
     .slider .checkout::-webkit-scrollbar {
       display: none; }
@@ -244,6 +247,8 @@ input::-webkit-inner-spin-button {
       gap: var(--checkout-item-gap);
       justify-content: space-between;
       padding-inline: var(--checkout-item-padding-inline); }
+      .slider .checkout__item:nth-child(2n) {
+        background-color: #494846; }
     .slider .checkout__img > img {
       width: var(--checkout-img-width); }
     .slider .checkout__price {

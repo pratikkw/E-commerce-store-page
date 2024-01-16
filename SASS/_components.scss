@@ -122,6 +122,7 @@ input::-webkit-inner-spin-button {
   }
 
   .checkout {
+    padding-block: var(--checkout-padding-block);
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -132,6 +133,10 @@ input::-webkit-inner-spin-button {
       gap: var(--checkout-item-gap);
       justify-content: space-between;
       padding-inline: var(--checkout-item-padding-inline);
+
+      &:nth-child(2n) {
+        background-color: #494846;
+      }
     }
 
     &__img {

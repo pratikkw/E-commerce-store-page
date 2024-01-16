@@ -83,6 +83,7 @@
 .slider {
   // PADDING
   --third-title-padding: 1rem 1.5rem;
+  --checkout-padding-block: 1rem;
   --checkout-item-padding-inline: 0.5rem;
   --slider-btns-padding: 1.25rem 0rem;
 
@@ -99,9 +100,10 @@
   --checkout-quantity-width: 5ch;
 
   width: 100vw;
-  max-width: 420px;
+  max-width: 26.25rem;
   background-color: var(--slider-bk-clr);
   grid-template-rows: auto 1fr auto;
+  gap: 0;
 
   position: fixed;
   inset: 0 0 0 auto;

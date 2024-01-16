@@ -22,8 +22,12 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/style.css" />
+
+    <!-- JS -->
+    <script src="JS/script.js" defer></script>
   </head>
   <body>
+    <div class="overlay"></div>
     <main class="main">
       <div class="main__container">
         <header class="header flex">
@@ -280,5 +284,126 @@
         </section>
       </div>
     </main>
+
+    <section class="slider grid">
+      <h3 class="third--title">Shopping cart</h3>
+      <ul class="checkout grid">
+        <!-- CHECKOUT ITEM 01 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/1.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld01 lounge chair</h4>
+          <span class="checkout__price">$ 200</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 02 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/2.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld02 lounge chair</h4>
+          <span class="checkout__price">$ 1000</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 03 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/3.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld03 lounge chair</h4>
+          <span class="checkout__price">$ 800</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 04 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/4.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld04 lounge chair</h4>
+          <span class="checkout__price">$ 700</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 05 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/5.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld05 lounge chair</h4>
+          <span class="checkout__price">$ 500</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 06 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/6.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld06 lounge chair</h4>
+          <span class="checkout__price">$ 600</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 07 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/7.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld07 lounge chair</h4>
+          <span class="checkout__price">$ 100</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+
+        <!-- CHECKOUT ITEM 08 -->
+        <li class="checkout__item flex">
+          <div class="checkout__img">
+            <img src="image/8.png" alt="" />
+          </div>
+          <h4 class="fourth--title">ld08 lounge chair</h4>
+          <span class="checkout__price">$ 800</span>
+          <div class="checkout__btnbox flex">
+            <button class="btn__minus">&minus;</button>
+            <input type="number" readonly placeholder="05" id="quantity" />
+            <button class="btn__add">&plus;</button>
+          </div>
+        </li>
+      </ul>
+      <div class="slider__btnbox flex">
+        <button class="btn__close">close</button>
+        <button class="btn__checkout">check out</button>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,0 +1,17 @@
+// MODIFIER CLASSES
+.body--scroll-lock {
+  overflow: hidden;
+}
+
+.overlay--active {
+  display: block;
+}
+
+.grid__btn--active,
+.grid__qty--active {
+  grid-template-rows: 1fr;
+}
+
+.slider--active {
+  transform: translateX(0%);
+}

@@ -39,14 +39,22 @@ input {
 }
 
 :root {
+  // BACKGROUND Clr
   --main-bk-clr: hsl(0, 0%, 100%);
+  --header-bk-clr: hsl(0, 0%, 100%);
+  --header-iconbox-bk-clr: hsl(244, 98%, 80%);
   --item-bk-clr: hsl(60, 19%, 92%);
   --slider-bk-clr: hsl(40, 3%, 20%);
   --addtocart-btn-bk-clr: hsl(40, 3%, 20%);
   --close-btn-bk-clr: hsl(0, 0%, 93%);
   --checkout-btn-bk-clr: hsl(48, 89%, 48%);
 
+  // TEXT Clr
   --white-text-clr: hsl(0, 0%, 100%);
+
+  // WIDTH
+  --main-container-maxwidth: 68.75rem;
+  --mian-container-width: 100vw;
 }
 
 body {

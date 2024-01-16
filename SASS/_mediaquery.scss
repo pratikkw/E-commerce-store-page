@@ -1,49 +1,35 @@
 @media only screen and (max-width: 500px) {
+  .main {
+    --primary-fs: 1.5rem;
+    --secondary-fs: 1.35rem;
+  }
+
   .header {
-    .primary--title {
-      font-size: 1.5rem;
-    }
+    // PADDING
+    --header-iconbox-padding: 0.125rem 1rem;
 
-    &__iconbox {
-      padding: 0.125rem 1rem;
-    }
-
-    .cart__icon {
-      font-size: 1.75rem;
-    }
-
-    .no_of__item {
-      font-size: 1.25rem;
-    }
+    // FONT-SIZE
+    --cart-icon-fs: 1.75rem;
+    --no_of-item-fs: 1.5rem;
   }
 
   .products {
+    // GAP
+    --item-container-gap: 1.25rem;
+
+    // PADDING
+    --item-btn-padding: 0.5rem 1.75rem;
+
+    // FONT-SIZE
+    --price-fs: 1.35rem;
+    --btn-fs: 1.75rem;
+
+    // WIDTH
+    --product-img-width: 15rem;
+
     &__container {
       grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
       justify-content: center;
-    }
-  }
-
-  .item {
-    &__container {
-      gap: 0.5rem;
-    }
-
-    .secondary--title {
-      font-size: 1.35rem;
-    }
-
-    .price {
-      font-size: 1.35rem;
-    }
-
-    &__btn {
-      padding: 0.5rem 1.75rem;
-      font-size: 1rem;
-    }
-
-    &__img > img {
-      width: 15rem;
     }
   }
 }

@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: hsla(0, 0%, 0%, 0.8);
+  background-color: hsla(0, 0%, 0%, 0.85);
   z-index: 20;
   display: none;
 }
@@ -84,7 +84,7 @@
   // PADDING
   --third-title-padding: 1rem 1.5rem;
   --checkout-padding-block: 1rem;
-  --checkout-item-padding-inline: 0.5rem;
+  --checkout-item-padding: 0.25rem 0.5rem;
   --slider-btns-padding: 1.25rem 0rem;
 
   // GAP

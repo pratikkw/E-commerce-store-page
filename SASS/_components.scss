@@ -132,7 +132,7 @@ input::-webkit-inner-spin-button {
     &__item {
       gap: var(--checkout-item-gap);
       justify-content: space-between;
-      padding-inline: var(--checkout-item-padding-inline);
+      padding: var(--checkout-item-padding);
 
       &:nth-child(2n) {
         background-color: #494846;

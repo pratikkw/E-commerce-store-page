@@ -1,0 +1,49 @@
+@media only screen and (max-width: 500px) {
+  .header {
+    .primary--title {
+      font-size: 1.5rem;
+    }
+
+    &__iconbox {
+      padding: 0.125rem 1rem;
+    }
+
+    .cart__icon {
+      font-size: 1.75rem;
+    }
+
+    .no_of__item {
+      font-size: 1.25rem;
+    }
+  }
+
+  .products {
+    &__container {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+      justify-content: center;
+    }
+  }
+
+  .item {
+    &__container {
+      gap: 0.5rem;
+    }
+
+    .secondary--title {
+      font-size: 1.35rem;
+    }
+
+    .price {
+      font-size: 1.35rem;
+    }
+
+    &__btn {
+      padding: 0.5rem 1.75rem;
+      font-size: 1rem;
+    }
+
+    &__img > img {
+      width: 15rem;
+    }
+  }
+}

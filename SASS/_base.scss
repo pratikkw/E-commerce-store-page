@@ -1,0 +1,58 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  display: block;
+}
+
+:root {
+  --main-bk-clr: hsl(0, 0%, 100%);
+  --item-bk-clr: hsl(60, 19%, 92%);
+  --slider-bk-clr: hsl(40, 3%, 20%);
+  --addtocart-btn-bk-clr: hsl(40, 3%, 20%);
+  --close-btn-bk-clr: hsl(0, 0%, 93%);
+  --checkout-btn-bk-clr: hsl(48, 89%, 48%);
+
+  --white-text-clr: hsl(0, 0%, 100%);
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--main-bk-clr);
+  font-family: "Poppins", sans-serif;
+}

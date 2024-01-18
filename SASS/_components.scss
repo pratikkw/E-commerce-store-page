@@ -70,13 +70,13 @@
   transition: grid-template-rows 0.3s;
 }
 
+.selectqty {
+  grid-template-rows: 0fr;
+}
+
 .item__subBox,
 .selectqty__container {
   overflow: hidden;
-}
-
-.item__btnbox {
-  grid-template-rows: 1fr;
 }
 
 // BUTTON
@@ -124,6 +124,7 @@ input::-webkit-inner-spin-button {
   .checkout {
     padding-block: var(--checkout-padding-block);
     overflow-y: scroll;
+    flex-direction: column;
 
     &::-webkit-scrollbar {
       display: none;

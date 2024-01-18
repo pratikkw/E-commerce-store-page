@@ -7,8 +7,8 @@
   display: block;
 }
 
-.grid__btn--active,
-.grid__qty--active {
+.item__btnbox--active,
+.selectqty--active {
   grid-template-rows: 1fr;
 }
 

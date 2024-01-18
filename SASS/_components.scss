@@ -134,6 +134,7 @@ input::-webkit-inner-spin-button {
       gap: var(--checkout-item-gap);
       justify-content: space-between;
       padding: var(--checkout-item-padding);
+      width: 100%;
 
       &:nth-child(2n) {
         background-color: #494846;
@@ -152,19 +153,18 @@ input::-webkit-inner-spin-button {
 
     &__btnbox {
       gap: var(--checkout-btnbox-gap);
+    }
 
-      & > button {
-        background-color: #fff;
-        border-radius: 50%;
-        width: var(--checkout-btns-width);
-        aspect-ratio: 1/1;
-      }
+    &__btn {
+      background-color: #fff;
+      border-radius: 50%;
+      width: var(--checkout-btns-width);
+      aspect-ratio: 1/1;
+    }
 
-      & > #quantity {
-        color: var(--white-text-clr);
-        width: var(--checkout-quantity-width);
-        background: transparent;
-      }
+    &__qty {
+      padding-inline: 0.5rem;
+      text-align: center;
     }
   }
 
@@ -187,5 +187,4 @@ input::-webkit-inner-spin-button {
     }
   }
 }
-
 // -------------------------------

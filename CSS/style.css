@@ -140,7 +140,7 @@ body {
 .slider {
   --third-title-padding: 1rem 1.5rem;
   --checkout-padding-block: 1rem;
-  --checkout-item-padding: 0.25rem 0.5rem;
+  --checkout-item-padding: 0.75rem 1rem;
   --slider-btns-padding: 1.25rem 0rem;
   --checkout-item-gap: 0.5rem;
   --checkout-btnbox-gap: 0.5rem;
@@ -247,7 +247,8 @@ input::-webkit-inner-spin-button {
     .slider .checkout__item {
       gap: var(--checkout-item-gap);
       justify-content: space-between;
-      padding: var(--checkout-item-padding); }
+      padding: var(--checkout-item-padding);
+      width: 100%; }
       .slider .checkout__item:nth-child(2n) {
         background-color: #494846; }
     .slider .checkout__img > img {
@@ -256,15 +257,14 @@ input::-webkit-inner-spin-button {
       text-wrap: nowrap; }
     .slider .checkout__btnbox {
       gap: var(--checkout-btnbox-gap); }
-      .slider .checkout__btnbox > button {
-        background-color: #fff;
-        border-radius: 50%;
-        width: var(--checkout-btns-width);
-        aspect-ratio: 1/1; }
-      .slider .checkout__btnbox > #quantity {
-        color: var(--white-text-clr);
-        width: var(--checkout-quantity-width);
-        background: transparent; }
+    .slider .checkout__btn {
+      background-color: #fff;
+      border-radius: 50%;
+      width: var(--checkout-btns-width);
+      aspect-ratio: 1/1; }
+    .slider .checkout__qty {
+      padding-inline: 0.5rem;
+      text-align: center; }
   .slider__btnbox {
     align-self: flex-end;
     gap: var(--slider-btn-gap); }

@@ -4,6 +4,9 @@ const body = document.body;
 // OVERLAY
 const overlay = document.querySelector(".overlay");
 
+// TOTAL ITEM IN CART
+const totalQty = document.querySelector(".no_of__item");
+
 // SLIDER
 const slider = document.querySelector(".slider");
 
@@ -19,7 +22,7 @@ const closeBtn = document.querySelector(".btn__close");
 // -----------------------------------
 
 let allProducts;
-const cart = [];
+let cart = [];
 
 // --> Slider Logic
 const showSlider = function () {
@@ -70,8 +73,10 @@ const displayProducts = function (arr) {
 // --> Display Products on Checkout List
 const display_Products_On_CheckoutList = function (arr) {
   checkoutContainer.innerHTML = "";
+  const newArr = arr.filter((item) => item.qty > 0);
+  totalQty.textContent = newArr.length;
 
-  const element = arr.forEach((item) => {
+  const element = newArr.forEach((item) => {
     const ele = document.createElement("li");
     ele.classList = `checkout__item flex`;
     const attr = document.createAttribute("data-id");
@@ -80,14 +85,14 @@ const display_Products_On_CheckoutList = function (arr) {
 
     ele.innerHTML = `<div class="checkout__img">
     <img src="${item.image}" alt="${item.alt}" />
-  </div>
-  <h4 class="fourth--title">${item.name}</h4>
-  <span class="checkout__price">$ ${item.price * item.qty}</span>
-  <div class="checkout__btnbox flex">
-    <button class="btn__minus">&minus;</button>
-    <input type="number" readonly value="${item.qty}" id="quantity" />
-    <button class="btn__add">&plus;</button>
-  </div>`;
+    </div>
+    <h4 class="fourth--title">${item.name}</h4>
+    <span class="checkout__price">$ ${item.price * item.qty}</span>
+    <div class="checkout__btnbox flex">
+    <button class="btn__minus checkout__btn">&minus;</button>
+    <span class="checkout__qty">${item.qty}</span>
+    <button class="btn__plus checkout__btn">&plus;</button>
+    </div>`;
 
     checkoutContainer.append(ele);
   });
@@ -122,11 +127,20 @@ const updateCart = function (id, qty) {
 };
 // ---------------------------
 
+// --> SHOW/HIDE "Add to Cart Btn"
+const show_hide_atcBtn = function (btnBox, inputBox, input, val) {
+  btnBox.classList.toggle("item__btnbox--active");
+  inputBox.classList.toggle("selectqty--active");
+  input.value = val;
+};
+// ---------------------------
+
 // INCREASE/DECREASE QTY
 const quantitySelector = function (id, btnBox, inputBox, target, input) {
   let val = +input.value;
 
   input.value = target.classList.contains("btn__plus") ? ++val : --val;
+  if (+input.value <= 0) show_hide_atcBtn(btnBox, inputBox, input, 0);
   updateCart(+id, +input.value);
 };
 // ---------------------------
@@ -137,9 +151,10 @@ overlay.addEventListener("click", showSlider);
 closeBtn.addEventListener("click", showSlider);
 
 productContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("products__container")) return;
   // Select Elements:-
   const ourProduct = e.target.closest(".item");
-  const ourProductID = ourProduct.dataset.p_id;
+  const ourProductID = ourProduct.dataset?.p_id;
   const atc_Box = ourProduct.querySelector(".item__btnbox");
   const atcBtn = ourProduct.querySelector(".item__btn");
   const quantityBox = ourProduct.querySelector(".item__selectqty");
@@ -147,11 +162,22 @@ productContainer.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("item__btn")) {
     // Modify Elements:-
-    atc_Box.classList.toggle("item__btnbox--active");
-    quantityBox.classList.toggle("selectqty--active");
-    quantity.value = 1;
+    show_hide_atcBtn(atc_Box, quantityBox, quantity, 1);
     updateCart(+ourProductID, +quantity.value);
   } else if (e.target.classList.contains("btn")) {
     quantitySelector(ourProductID, atc_Box, quantityBox, e.target, quantity);
   }
+});
+
+checkoutContainer.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("checkout__btn")) return;
+  const ckProdcut = e.target.closest(".checkout__item");
+  const ckProdcutID = ckProdcut.dataset.id;
+
+  const ourProduct = document.querySelector(`[data-p_id="${ckProdcutID}"]`);
+  const atc_Box = ourProduct.querySelector(".item__btnbox");
+  const quantityBox = ourProduct.querySelector(".item__selectqty");
+  const quantity = ourProduct.querySelector("#quantity");
+
+  quantitySelector(ckProdcutID, atc_Box, quantityBox, e.target, quantity);
 });

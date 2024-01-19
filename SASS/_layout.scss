@@ -6,6 +6,15 @@
   display: none;
 }
 
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(0, 0%, 0%, 0.85);
+  background-color: hsl(60, 19%, 92%);
+  z-index: 40;
+  place-items: center;
+}
+
 .main {
   // PADDING
   --header-padding: 1.25rem 1.5rem;

@@ -99,6 +99,14 @@ body {
   z-index: 20;
   display: none; }
 
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #eeeee7;
+  z-index: 40;
+  place-items: center; }
+
 .main {
   --header-padding: 1.25rem 1.5rem;
   --products-padding: 2rem 1.5rem;

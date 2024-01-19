@@ -4,6 +4,10 @@ const body = document.body;
 // OVERLAY
 const overlay = document.querySelector(".overlay");
 
+// PRELOADER
+const preloader = document.querySelector(".preloader");
+const preloaderImg = document.querySelector(".preloader__img");
+
 // TOTAL ITEM IN CART
 const totalQty = document.querySelector(".no_of__item");
 
@@ -23,6 +27,12 @@ const closeBtn = document.querySelector(".btn__close");
 
 let allProducts;
 let cart = [];
+
+window.addEventListener("load", function () {
+  preloader.style.display = "none";
+  preloaderImg.src = "";
+  body.classList.remove("body--scroll-lock");
+});
 
 // --> Slider Logic
 const showSlider = function () {
@@ -126,7 +136,6 @@ const refresh = function (arr) {
 // --> GET ITEM FORM LOCAL STORAGE
 const storage = function () {
   const get_storeItem = JSON.parse(localStorage.getItem("cart"));
-  console.log(get_storeItem);
   cart = [...get_storeItem];
   display_Products_On_CheckoutList(get_storeItem);
   refresh(get_storeItem);

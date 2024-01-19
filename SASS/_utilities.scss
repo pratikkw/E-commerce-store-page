@@ -26,12 +26,12 @@
 
 .third--title {
   text-transform: capitalize;
-  font-size: 2.25rem;
+  font-size: var(--third-fs);
   font-weight: 400;
 }
 
 .fourth--title {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 0.9rem;
+  font-size: var(--fourth-fs);
 }

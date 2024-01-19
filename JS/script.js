@@ -32,6 +32,14 @@ const showSlider = function () {
 };
 // ---------------------------
 
+// --> SHOW/HIDE "Add to Cart Btn"
+const show_hide_atcBtn = function (btnBox, inputBox, input, val) {
+  btnBox.classList.toggle("item__btnbox--active");
+  inputBox.classList.toggle("selectqty--active");
+  input.value = val;
+};
+// ---------------------------
+
 // --> Display Products
 const displayProducts = function (arr) {
   const elements = arr
@@ -74,7 +82,8 @@ const displayProducts = function (arr) {
 const display_Products_On_CheckoutList = function (arr) {
   checkoutContainer.innerHTML = "";
   const newArr = arr.filter((item) => item.qty > 0);
-  totalQty.textContent = newArr.length;
+  localStorage.setItem("cart", JSON.stringify(newArr));
+  totalQty.textContent = newArr.length ? newArr.length : "";
 
   const element = newArr.forEach((item) => {
     const ele = document.createElement("li");
@@ -99,6 +108,31 @@ const display_Products_On_CheckoutList = function (arr) {
 };
 // ---------------------------
 
+// --> Refresh ProductContainer
+const refresh = function (arr) {
+  arr.forEach((item) => {
+    if (item.qty === 0) return;
+    const ourProduct = document.querySelector(`[data-p_id="${item.id}"]`);
+    const atc_Box = ourProduct.querySelector(".item__btnbox");
+    const quantityBox = ourProduct.querySelector(".item__selectqty");
+    const quantity = ourProduct.querySelector("#quantity");
+
+    // console.log(ourProduct, atc_Box, quantityBox, quantity);
+    show_hide_atcBtn(atc_Box, quantityBox, quantity, item.qty);
+  });
+};
+// ---------------------------
+
+// --> GET ITEM FORM LOCAL STORAGE
+const storage = function () {
+  const get_storeItem = JSON.parse(localStorage.getItem("cart"));
+  console.log(get_storeItem);
+  cart = [...get_storeItem];
+  display_Products_On_CheckoutList(get_storeItem);
+  refresh(get_storeItem);
+};
+// ---------------------------
+
 // --> Get data about our products
 const getProducts = async function () {
   try {
@@ -106,6 +140,7 @@ const getProducts = async function () {
     const r = await result.json();
     allProducts = r;
     displayProducts(r);
+    storage();
   } catch (err) {}
 };
 getProducts();
@@ -124,14 +159,6 @@ const updateCart = function (id, qty) {
     cart.push({ ...findProduct, qty });
   }
   display_Products_On_CheckoutList(cart);
-};
-// ---------------------------
-
-// --> SHOW/HIDE "Add to Cart Btn"
-const show_hide_atcBtn = function (btnBox, inputBox, input, val) {
-  btnBox.classList.toggle("item__btnbox--active");
-  inputBox.classList.toggle("selectqty--active");
-  input.value = val;
 };
 // ---------------------------
 

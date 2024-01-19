@@ -16,10 +16,6 @@
 
   // BORDER
   --header-border: 1px solid #111;
-
-  // FONT-SIZE
-  --primary-fs: 2rem;
-  --secondary-fs: 1.25rem;
 }
 
 .main__container {
@@ -32,7 +28,10 @@
 
 .header {
   // PADDING
-  --header-iconbox-padding: 0.125rem 1.25rem;
+  --header-iconbox-padding: 0.125rem 1rem;
+
+  // GAP
+  --header-iconbox-gap: 0.5rem;
 
   // FONT-SIZE
   --cart-icon-fs: 2.5rem;
@@ -57,7 +56,6 @@
   --quantity-padding: 0.25rem 0rem;
 
   // MARGIN
-  --cart-icon-mg-bttm: 0.25rem;
   --price-mg-top: 0.5rem;
 
   // WIDTH

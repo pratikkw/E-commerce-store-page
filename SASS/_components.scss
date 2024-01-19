@@ -2,16 +2,19 @@
   &__iconbox {
     cursor: pointer;
     background-color: var(--header-iconbox-bk-clr);
+    grid-template-columns: auto 3ch;
+    gap: var(--header-iconbox-gap);
     padding: var(--header-iconbox-padding);
     border-radius: 100px;
 
     .cart__icon {
       font-size: var(--cart-icon-fs);
-      margin-bottom: var(--cart-icon-mg-bttm);
     }
 
     .no_of__item {
       font-size: var(--no_of-item-fs);
+      align-self: end;
+      justify-self: center;
     }
   }
 }
@@ -34,6 +37,7 @@
     & > img {
       width: var(--product-img-width);
       margin-inline: auto;
+      filter: drop-shadow(0 50px 20px #0009);
     }
   }
 

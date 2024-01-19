@@ -1,5 +1,5 @@
-@media only screen and (max-width: 500px) {
-  .main {
+@media only screen and (max-width: 31.25rem) {
+  :root {
     --primary-fs: 1.5rem;
     --secondary-fs: 1.35rem;
   }
@@ -10,7 +10,11 @@
 
     // FONT-SIZE
     --cart-icon-fs: 1.75rem;
-    --no_of-item-fs: 1.5rem;
+    --no_of-item-fs: 1.125rem;
+
+    &__iconbox {
+      grid-template-columns: auto 1ch;
+    }
   }
 
   .products {
@@ -28,7 +32,7 @@
     --product-img-width: 15rem;
 
     &__container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 25rem));
       justify-content: center;
     }
   }

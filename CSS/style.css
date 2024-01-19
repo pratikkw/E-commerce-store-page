@@ -37,6 +37,8 @@ button,
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 :root {
+  --overlay-bk-clr: hsla(0, 0%, 0%, 0.85);
+  --preloader-bk-clr: hsl(60, 19%, 92%);
   --main-bk-clr: hsl(0, 0%, 100%);
   --header-bk-clr: hsl(0, 0%, 100%);
   --header-iconbox-bk-clr: hsl(244, 98%, 80%);
@@ -95,15 +97,14 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: var(--overlay-bk-clr);
   z-index: 20;
   display: none; }
 
 .preloader {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  background-color: #eeeee7;
+  background-color: var(--preloader-bk-clr);
   z-index: 40;
   place-items: center; }
 

@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: hsla(0, 0%, 0%, 0.85);
+  background-color: var(--overlay-bk-clr);
   z-index: 20;
   display: none;
 }
@@ -9,8 +9,7 @@
 .preloader {
   position: fixed;
   inset: 0;
-  background-color: hsla(0, 0%, 0%, 0.85);
-  background-color: hsl(60, 19%, 92%);
+  background-color: var(--preloader-bk-clr);
   z-index: 40;
   place-items: center;
 }

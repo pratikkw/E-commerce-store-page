@@ -45,6 +45,8 @@ button,
 
 :root {
   // BACKGROUND Clr
+  --overlay-bk-clr: hsla(0, 0%, 0%, 0.85);
+  --preloader-bk-clr: hsl(60, 19%, 92%);
   --main-bk-clr: hsl(0, 0%, 100%);
   --header-bk-clr: hsl(0, 0%, 100%);
   --header-iconbox-bk-clr: hsl(244, 98%, 80%);

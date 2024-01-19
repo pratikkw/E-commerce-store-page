@@ -32,6 +32,10 @@ input {
   background: none;
   display: block; }
 
+button,
+.header__iconbox {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
 :root {
   --main-bk-clr: hsl(0, 0%, 100%);
   --header-bk-clr: hsl(0, 0%, 100%);
